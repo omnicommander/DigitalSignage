@@ -2,7 +2,7 @@
 # OmniTube v1.0 -- OMNICOMMANDER
 # bradshaw@omnicommander.com
 # ================================================================
-source /home/pi/OC-DigitalSignage/config.sh
+source /home/pi/DigitalSignage/config.sh
 
  # VLC option parameters
  # ================================================================

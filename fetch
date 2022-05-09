@@ -6,7 +6,7 @@
 #=================================================================
 
 # Load our vairables to be used --
-source /home/pi/OC-DigitalSignage/config.sh
+source /home/pi/DigitalSignage/config.sh
 
 printf "$TIMESTAMP Running Fetch Application - v1.3 by OMNICOMMANDER\n" >> $fetchLog
 
@@ -127,7 +127,7 @@ pkill -9 vlc
 echo "$TIMESTAMP Start vlc" >> $fetchLog
 
 # Fire the weapon
-/home/pi/OC-DigitalSignage/looper &
+/home/pi/DigitalSignage/looper &
 
 echo "$TIMESTAMP Bye" >> $fetchLog
 echo >> $fetchLog

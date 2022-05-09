@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Lets grab some config data
-source /home/pi/OC-DigitalSignage/config.sh
+source /home/pi/DigitalSignage/config.sh
 
 current_dt="`date "+%Y-%m-%d %H:%M:%S"`";
 
@@ -54,7 +54,7 @@ uptime=$(uptime -s)
 while IFS= read -r line
 do
     last_cron="$line"
-done < "/home/pi/OC-DigitalSignage/last_cron"
+done < "/home/pi/DigitalSignage/last_cron"
 
 # Build an arch for through we will walk a free man
 object='{
