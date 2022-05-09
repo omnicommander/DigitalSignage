@@ -114,21 +114,17 @@ done
 
 # Iterate Array3 and remove these files
 for d in "${Array3[@]}"; do
-    echo "$TIMESTAMP deleting ${VIDEOPATH}/ like *${d}*" >> $fetchLog
+    echo "$TIMESTAMP deleteing ${VIDEOPATH}/ like *${d}*" >> $fetchLog
     find "${VIDEOPATH}/" -name "*${d}*" -type f -exec rm {} +
 done
 
-# push our status
-/home/pi/OC-DigitalSignage/push
+# stop vlc if it's running or frozen
+echo "$TIMESTAMP pkill -9 vlc" >> $fetchLog
 
-
-# stop mpv if it's running or frozen
-echo "$TIMESTAMP pkill -9 mpv" >> $fetchLog
-
-pkill -9 mpv
+pkill -9 vlc
 
 # Run the looper script
-echo "$TIMESTAMP Start mpv" >> $fetchLog
+echo "$TIMESTAMP Start vlc" >> $fetchLog
 
 # Fire the weapon
 /home/pi/OC-DigitalSignage/looper &

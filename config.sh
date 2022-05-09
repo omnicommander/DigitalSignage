@@ -3,7 +3,7 @@ JSONPATH="/home/pi/OC-DigitalSignage/json"          	    # path for json file fr
 VIDEOPATH="/home/pi/OC-DigitalSignage/video"                  # path for fetch to store video mp4 files
 fetchLog="/home/pi/OC-DigitalSignage/fetch.log"               # path for logging
 TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`               # timestamp formatting for logger
-URL="http://34.193.150.151/pi_callHome.php?id="     # url to server for requests
-AUTHOR="Eric Bradshaw bradshaw@omnicommander.com"   # author
-PI_UID=""   	                                    # ID for this PI machine
-VERSION=1.7                                         # revision number
+URL="https://www.omnicommando.com/pi_callHome.php?id="     # url to server for requests
+AUTHOR="Eric Bradshaw bradshaw@omnicommander.com"      # author
+PI_UID="ThinkwiseMain2"   	                    # ID for this PI machine
+VERSION=1.4                                         # revision number

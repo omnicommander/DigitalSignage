@@ -37,13 +37,13 @@ host_ip=$(hostname  -I | cut -f1 -d' ')
 ssid=$(awk -F "[{}]" '/"/ { print $1 }' /etc/wpa_supplicant/wpa_supplicant.conf)
 wifi=${ssid[@]//\"/}
 
-# is mpv running?
-SERVICE="mpv"
+# is vlc running?
+SERVICE="vlc"
 if pgrep -x "$SERVICE" > /dev/null
 then
-    mpvserviceStatus="running"
+    vlcserviceStatus="running"
     else
-    mpvserviceStatus="stopped"
+    vlcserviceStatus="stopped"
  fi
 
 # Uptime since
@@ -81,11 +81,12 @@ object='{
             {
                 "uptime_since" : "'"$uptime"'",
                 "last_cron" : "'"$last_cron"'",
-                "vlc" : "'"$mpvserviceStatus"'"
+                "vlc" : "'"$vlcserviceStatus"'"
             }
         }'
 
 # Post our object to the server for capture.
-curl -H "Content-Type: application/json" -X POST http://34.193.150.151/dat-receive.php --data "$object"
+curl -H "Content-Type: application/json" -X POST https://www.omnicommando.com/dat-receive.php --data "$object"
 
+# And, get the fuck out.
 exit 0;
