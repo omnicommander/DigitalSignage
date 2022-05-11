@@ -50,7 +50,7 @@ printf "*** Dependencies succesfully installed. Now installing configuration fil
 
 #echo
 #printf "Installing Raspian boot configuration files...\n"
-#tar -xvf /home/pi/DigitalSignage/booter.tar
+#tar -xvf /home/pi/OC-DigitalSignage/booter.tar
 #echo
 
 # Begin user configuration session
@@ -58,7 +58,7 @@ printf "*** Dependencies succesfully installed. Now installing configuration fil
 while true; do
 	read -p "Do you wish to set the PI_UID now? (y/n)" yn
     case $yn in
-        [Yy]* ) nano /home/pi/DigitalSignage/config.sh; break;;
+        [Yy]* ) nano /home/pi/OC-DigitalSignage/config.sh; break;;
         [Nn]* ) printf "You can always edit the config.sh anytime.\nBye for now!"; break;;
         * ) printf "Please answer yes or no or I will ask you again.\n";;
     esac
@@ -84,31 +84,47 @@ done
 
 # configure cron for boot to run as pi
 # change to pi user for the following EOF
-sudo -i -u pi bash << EOF
-    # export current crontab to mycron
-    crontab -l > mycron_old
+#!/usr/bin/env bash
+# =================================
+# sudo ./patch
+# =================================
 
-    # write new mycron --
-    # Fetch on boot timestamp to last_cron
-    echo "@reboot /home/pi/DigitalSignage/fetch && date +\%Y-\%m-\%d\ \%H:\%M:\%S > /home/pi/DigitalSignage/last_cron" > mycron
+sudo sh -c 'cat <<EOF > /var/spool/cron/crontabs/root
 
-    # Every 6hrs fetch and timestamp to last_cron
-    echo "1 */6 * * * /home/pi/DigitalSignage/fetch && date +\%Y-\%m-\%d\ \%H:\%M:\%S > /home/pi/DigitalSignage/last_cron" >> mycron
+# Edit this file to introduce tasks to be run by cron.
+#
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+#
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use* in these fields (for any).
+#
+# Notice that tasks will be started based on the crons system
+# daemons notion of time and timezones.
+#
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+#
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+#
+# For more information see the manual pages of crontab(5) and cron(8)
+#
+# m h  dom mon dow   command
+# write new mycron --
+# Fetch on boot timestamp to last_cron
+#@reboot /home/pi/OC-DigitalSignage/fetch && date +\%Y-\%m-\%d\ \%H:\%M:\%S > /home/pi/OC-DigitalSignage/last_cron > mycron
 
-    # Every 15min push heartbeat and timestamp to last_cron
-    echo "*/15 * * * * /home/pi/DigitalSignage/push && date +\%Y-\%m-\%d\ \%H:\%M:\%S > /home/pi/DigitalSignage/last_cron" >> mycron
-
-    # Every morning at 4am reboot
-    echo "59 3 * * * sudo /sbin/shutdown -r now" >> mycron
-
-    # install new cron file
-    crontab mycron
-    rm mycron
-EOF
-
+*/15 * * * * /home/pi/OC-DigitalSignage/push && date +\%Y-\%m-\%d\ \%H:\%M:\%S > /home/pi/OC-DigitalSignage/last_cron
+0 4 * * * sudo /sbin/shutdown -r now && date +\%Y-\%m-\%d\ \%H:\%M:\%S > /home/pi/OC-DigitalSignage/last_cron
+EOF'
+sudo /etc/init.d/cron restart
 # exit out
-printf "\nWell done, young Commander!\n"
-printf "Installation is now complete. Please reboot to begin use, and be patient on reboot as I have to download video files on boot.\n"
-printf "I will begin playing the videos in a loop once he download completes."
+printf "\nWell done, young COMMANDO!!\n"
+printf "Device Update Is Now Complete\n"
+
 
 exit 0;

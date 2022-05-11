@@ -6,7 +6,7 @@
 #=================================================================
 
 # Load our vairables to be used --
-source /home/pi/DigitalSignage/config.sh
+source /home/pi/OC-DigitalSignage/config.sh
 
 printf "$TIMESTAMP Running Fetch Application - v1.3 by OMNICOMMANDER\n" >> $fetchLog
 
@@ -114,20 +114,24 @@ done
 
 # Iterate Array3 and remove these files
 for d in "${Array3[@]}"; do
-    echo "$TIMESTAMP deleteing ${VIDEOPATH}/ like *${d}*" >> $fetchLog
+    echo "$TIMESTAMP deleting ${VIDEOPATH}/ like *${d}*" >> $fetchLog
     find "${VIDEOPATH}/" -name "*${d}*" -type f -exec rm {} +
 done
 
-# stop vlc if it's running or frozen
-echo "$TIMESTAMP pkill -9 vlc" >> $fetchLog
+# push our status
+/home/pi/OC-DigitalSignage/push
 
-pkill -9 vlc
+
+# stop mpv if it's running or frozen
+echo "$TIMESTAMP pkill -9 mpv" >> $fetchLog
+
+pkill -9 mpv
 
 # Run the looper script
-echo "$TIMESTAMP Start vlc" >> $fetchLog
+echo "$TIMESTAMP Start mpv" >> $fetchLog
 
 # Fire the weapon
-/home/pi/DigitalSignage/looper &
+/home/pi/OC-DigitalSignage/looper &
 
 echo "$TIMESTAMP Bye" >> $fetchLog
 echo >> $fetchLog
