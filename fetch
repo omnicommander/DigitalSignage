@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
-#=================================================================
-# OmniTube by Scott Fleming
-# scott@omnicommander.com
-# Video Display application
-#=================================================================
 
 # Load our vairables to be used --
 source /home/pi/OC-DigitalSignage/config.sh

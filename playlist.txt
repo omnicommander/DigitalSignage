@@ -1,6 +1,8 @@
-/home/pi/OC-DigitalSignage/video/3_OC-DeploymentScreen-fPem6MXkpng.mp4
-/home/pi/OC-DigitalSignage/video/5_OC-DeploymentScreen-OhBo1A8atuA.mp4
-/home/pi/OC-DigitalSignage/video/4_OC-DeploymentScreen-_e4M9Q04GvA.mp4
-/home/pi/OC-DigitalSignage/video/5_OC-DeploymentScreen-0k23DVv_xsA.mp4
-/home/pi/OC-DigitalSignage/video/6_OC-DeploymentScreen-8n4ZfB2EnHU.mp4
-/home/pi/OC-DigitalSignage/video/2_OC-DeploymentScreen-hOG7G7IzN1A.mp4
+/home/pi/OC-DigitalSignage/video/6_Lobby_Screen-GuB0UQ6mQGQ.mp4
+/home/pi/OC-DigitalSignage/video/4_Lobby_Screen-J78ObYR0dEc.mp4
+/home/pi/OC-DigitalSignage/video/5_Lobby_Screen-a6ZZxbMGGVc.mp4
+/home/pi/OC-DigitalSignage/video/7_Lobby_Screen-gkPlgivMwtk.mp4
+/home/pi/OC-DigitalSignage/video/12_Lobby_Screen-CCEuHl4PGJk.mp4
+/home/pi/OC-DigitalSignage/video/8_Lobby_Screen-b7DklWlX5aM.mp4
+/home/pi/OC-DigitalSignage/video/11_Lobby_Screen-fSzFWiDos4Y.mp4
+/home/pi/OC-DigitalSignage/video/8_Lobby_Screen-arwRQbN0otA.mp4

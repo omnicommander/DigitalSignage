@@ -86,6 +86,6 @@ object='{
         }'
 
 # Post our object to the server for capture.
-curl -H "Content-Type: application/json" -X POST http://34.193.150.151/dat-receive.php --data "$object"
+curl -H "Content-Type: application/json" -X POST https://omnicommando.com/dat-receive.php --data "$object"
 
 exit 0;
